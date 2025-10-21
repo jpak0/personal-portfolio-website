@@ -662,27 +662,29 @@ export default function Portfolio3D() {
         </div>
       </nav>
 
-      <div className="absolute left-6 top-36 z-0 w-96 h-64 overflow-hidden">
-        <div className="bg-black/70 backdrop-blur border border-green-500/30 rounded p-3 h-full">
-          <div className="flex items-center gap-2 mb-2 border-b border-green-500/30 pb-2">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="text-green-400 font-mono text-xs">SATELLITE TELEMETRY STREAM</span>
-          </div>
-          <div className="font-mono text-xs space-y-1 overflow-y-auto h-48">
-            {logs.map((log, i) => (
-              <div key={i} className="text-green-400/80 animate-fadeIn">
-                {log}
-              </div>
-            ))}
+      {section === 'classified' && (
+        <div className="absolute left-6 top-36 z-0 w-96 h-64 overflow-hidden">
+          <div className="bg-black/70 backdrop-blur border border-green-500/30 rounded p-3 h-full">
+            <div className="flex items-center gap-2 mb-2 border-b border-green-500/30 pb-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-green-400 font-mono text-xs">SATELLITE TELEMETRY STREAM</span>
+            </div>
+            <div className="font-mono text-xs space-y-1 overflow-y-auto h-48">
+              {logs.map((log, i) => (
+                <div key={i} className="text-green-400/80 animate-fadeIn">
+                  {log}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       <div className="absolute bottom-0 left-0 right-0 z-10 p-8 bg-gradient-to-t from-black via-black/98 to-transparent pointer-events-none">
         <div className="max-w-6xl mx-auto pointer-events-auto">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-            <h2 className="text-3xl font-bold text-green-400 font-mono tracking-wider">
+            <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            <h2 className="text-3xl font-bold text-red-500 font-mono tracking-wider">
               {content[section].title}
             </h2>
           </div>
@@ -750,23 +752,25 @@ export default function Portfolio3D() {
         </div>
       </div>
 
-      <div className="absolute top-32 right-6 z-10 font-mono text-xs space-y-2">
-        <div className="bg-black/80 backdrop-blur border border-green-400/30 p-3 rounded">
-          <p className="text-green-400 mb-2">⚡ SATELLITE STATUS</p>
-          <div className="space-y-1 text-gray-400">
-            <p>🛰️ GPS-SAT-01: <span className="text-green-400">OPERATIONAL</span></p>
-            <p>🛰️ DEF-SAT-02: <span className="text-green-400">OPERATIONAL</span></p>
-            <p>🛰️ COM-SAT-03: <span className="text-green-400">OPERATIONAL</span></p>
-            <p>🛰️ SPY-SAT-04: <span className="text-green-400">OPERATIONAL</span></p>
-            <p>🛰️ MIL-SAT-05: <span className="text-green-400">OPERATIONAL</span></p>
-            <p>🛰️ OBS-SAT-06: <span className="text-green-400">OPERATIONAL</span></p>
+      {section === 'classified' && (
+        <div className="absolute top-32 right-6 z-10 font-mono text-xs space-y-2">
+          <div className="bg-black/80 backdrop-blur border border-green-400/30 p-3 rounded">
+            <p className="text-green-400 mb-2">⚡ SATELLITE STATUS</p>
+            <div className="space-y-1 text-gray-400">
+              <p>🛰️ GPS-SAT-01: <span className="text-green-400">OPERATIONAL</span></p>
+              <p>🛰️ DEF-SAT-02: <span className="text-green-400">OPERATIONAL</span></p>
+              <p>🛰️ COM-SAT-03: <span className="text-green-400">OPERATIONAL</span></p>
+              <p>🛰️ SPY-SAT-04: <span className="text-green-400">OPERATIONAL</span></p>
+              <p>🛰️ MIL-SAT-05: <span className="text-green-400">OPERATIONAL</span></p>
+              <p>🛰️ OBS-SAT-06: <span className="text-green-400">OPERATIONAL</span></p>
+            </div>
+          </div>
+          <div className="bg-black/80 backdrop-blur border border-yellow-600/30 p-3 rounded">
+            <p className="text-yellow-400">🌍 EARTH DEFENSE GRID</p>
+            <p className="text-green-400 mt-1">ACTIVE - ALL SECTORS</p>
           </div>
         </div>
-        <div className="bg-black/80 backdrop-blur border border-yellow-600/30 p-3 rounded">
-          <p className="text-yellow-400">🌍 EARTH DEFENSE GRID</p>
-          <p className="text-green-400 mt-1">ACTIVE - ALL SECTORS</p>
-        </div>
-      </div>
+      )}
     </div>
   );
 }
