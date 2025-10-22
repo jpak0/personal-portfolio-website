@@ -762,21 +762,46 @@ export default function Portfolio3D() {
       </div>
 
       {section === 'classified' && (
-        <div className="absolute top-32 right-6 z-10 font-mono text-xs space-y-2">
-          <div className="bg-black/80 backdrop-blur border border-green-400/30 p-3 rounded">
-            <p className="text-green-400 mb-2">⚡ SATELLITE STATUS</p>
-            <div className="space-y-1 text-gray-400">
-              <p>🛰️ GPS-SAT-01: <span className="text-green-400">OPERATIONAL</span></p>
-              <p>🛰️ DEF-SAT-02: <span className="text-green-400">OPERATIONAL</span></p>
-              <p>🛰️ COM-SAT-03: <span className="text-green-400">OPERATIONAL</span></p>
-              <p>🛰️ SPY-SAT-04: <span className="text-green-400">OPERATIONAL</span></p>
-              <p>🛰️ MIL-SAT-05: <span className="text-green-400">OPERATIONAL</span></p>
-              <p>🛰️ OBS-SAT-06: <span className="text-green-400">OPERATIONAL</span></p>
+        <div className="hidden xl:block absolute right-0 top-44 z-0 pointer-events-none">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="w-56 xl:w-64 2xl:w-72 pointer-events-auto font-mono text-xs space-y-2">
+              <div className="bg-black/80 backdrop-blur border border-red-500/50 p-2 xl:p-3 rounded">
+                <p className="text-red-400 mb-1 xl:mb-2">⚡ SATELLITE STATUS</p>
+                <div className="space-y-0.5 xl:space-y-1 text-gray-400 text-xs">
+                  <p>🛰️ GPS-SAT-01: <span className="text-green-400">OPERATIONAL</span></p>
+                  <p>🛰️ DEF-SAT-02: <span className="text-green-400">OPERATIONAL</span></p>
+                  <p>🛰️ COM-SAT-03: <span className="text-green-400">OPERATIONAL</span></p>
+                  <p>🛰️ SPY-SAT-04: <span className="text-green-400">OPERATIONAL</span></p>
+                  <p>🛰️ MIL-SAT-05: <span className="text-green-400">OPERATIONAL</span></p>
+                  <p>🛰️ OBS-SAT-06: <span className="text-green-400">OPERATIONAL</span></p>
+                </div>
+              </div>
+              <div className="bg-black/80 backdrop-blur border border-red-500/50 p-2 xl:p-3 rounded">
+                <p className="text-red-400">🌍 EARTH DEFENSE GRID</p>
+                <p className="text-green-400 mt-1">ACTIVE - ALL SECTORS</p>
+              </div>
+              <div className="bg-black/80 backdrop-blur border border-red-500/50 p-2 xl:p-3 rounded">
+                <p className="text-red-400 mb-2">🔗 QUICK LINKS</p>
+                <div className="space-y-1.5">
+                  <a
+                    href="https://www.linkedin.com/in/yourprofile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center text-xs uppercase font-mono tracking-wider transition-colors border border-gray-600 hover:border-white text-gray-400 hover:text-white px-2 py-1"
+                  >
+                    LINKEDIN
+                  </a>
+                  <a
+                    href="https://github.com/yourusername"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center text-xs uppercase font-mono tracking-wider transition-colors border border-gray-600 hover:border-white text-gray-400 hover:text-white px-2 py-1"
+                  >
+                    GITHUB
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="bg-black/80 backdrop-blur border border-yellow-600/30 p-3 rounded">
-            <p className="text-yellow-400">🌍 EARTH DEFENSE GRID</p>
-            <p className="text-green-400 mt-1">ACTIVE - ALL SECTORS</p>
           </div>
         </div>
       )}
