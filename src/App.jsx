@@ -668,18 +668,22 @@ export default function Portfolio3D() {
       </nav>
 
       {section === 'classified' && (
-        <div className="absolute left-6 top-36 z-0 w-96 h-64 overflow-hidden">
-          <div className="bg-black/70 backdrop-blur border border-green-500/30 rounded p-3 h-full">
-            <div className="flex items-center gap-2 mb-2 border-b border-green-500/30 pb-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-green-400 font-mono text-xs">SATELLITE TELEMETRY STREAM</span>
-            </div>
-            <div className="font-mono text-xs space-y-1 overflow-y-auto h-48">
-              {logs.map((log, i) => (
-                <div key={i} className="text-green-400/80 animate-fadeIn">
-                  {log}
+        <div className="hidden xl:block absolute left-0 top-44 z-0 pointer-events-none">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="w-64 xl:w-72 2xl:w-80 pointer-events-auto">
+              <div className="bg-black/70 backdrop-blur border border-red-500/50 rounded p-2 xl:p-3 h-64 xl:h-72 2xl:h-96">
+                <div className="flex items-center gap-2 mb-2 border-b border-red-500/50 pb-2">
+                  <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
+                  <span className="text-red-400 font-mono text-xs">SATELLITE TELEMETRY STREAM</span>
                 </div>
-              ))}
+                <div className="font-mono text-xs space-y-1 overflow-y-auto h-48 xl:h-56 2xl:h-80">
+                  {logs.map((log, i) => (
+                    <div key={i} className="text-gray-300/80 animate-fadeIn">
+                      {log}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
