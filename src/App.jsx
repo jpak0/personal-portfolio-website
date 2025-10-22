@@ -697,8 +697,59 @@ export default function Portfolio3D() {
       <nav className="absolute top-12 left-0 right-0 z-10">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 md:py-4">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-4">
-            <div className="text-xl md:text-2xl font-bold text-red-500 font-mono tracking-wider">
-              [YOUR NAME]
+            <div className="flex items-start gap-4">
+              <div className="text-xl md:text-2xl font-bold text-red-500 font-mono tracking-wider">
+                JOSEPH PAK
+              </div>
+              {/* Astronaut Avatar */}
+              <div className="hidden lg:block relative w-20 h-32 xl:w-24 xl:h-40">
+                {/* Helmet with profile picture */}
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-gray-400 bg-gray-800 overflow-hidden z-10">
+                  <img
+                    src="/path/to/your/profile-picture.jpg"
+                    alt="Joe Pak"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-gray-400 text-xs">PHOTO</div>';
+                    }}
+                  />
+                  {/* Helmet visor reflection */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-blue-400/20 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+
+                {/* Neck ring */}
+                <div className="absolute top-14 md:top-18 left-1/2 transform -translate-x-1/2 w-16 h-3 bg-gray-600 rounded-full border-2 border-gray-500 z-5"></div>
+
+                {/* Space suit torso */}
+                <div className="absolute top-16 md:top-18 left-1/2 transform -translate-x-1/2 w-20 h-24 bg-gradient-to-b from-gray-200 to-gray-300 rounded-lg border-2 border-gray-400">
+                  {/* Chest control panel */}
+                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-16 bg-gray-800 rounded border border-gray-600 p-1">
+                    {/* LED lights */}
+                    <div className="grid grid-cols-3 gap-1 mb-1">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                    </div>
+                    {/* Control lines */}
+                    <div className="space-y-0.5">
+                      <div className="h-0.5 bg-cyan-400/50 w-full"></div>
+                      <div className="h-0.5 bg-cyan-400/50 w-3/4"></div>
+                      <div className="h-0.5 bg-cyan-400/50 w-full"></div>
+                      <div className="h-0.5 bg-cyan-400/50 w-2/3"></div>
+                    </div>
+                  </div>
+
+                  {/* Life support tubes */}
+                  <div className="absolute bottom-1 left-1 w-1 h-8 bg-yellow-600 rounded-full"></div>
+                  <div className="absolute bottom-1 right-1 w-1 h-8 bg-yellow-600 rounded-full"></div>
+                </div>
+
+                {/* Antenna on helmet */}
+                <div className="absolute top-[-4px] left-1/2 transform -translate-x-1/2 translate-x-6 w-0.5 h-6 bg-gray-500 z-10">
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></div>
+                </div>
+              </div>
             </div>
             <div className="flex flex-wrap gap-2 md:gap-4 justify-center">
               {[
