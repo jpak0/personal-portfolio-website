@@ -127,13 +127,13 @@ export default function Portfolio3D() {
     fillLight.position.set(-30, 10, -30);
     scene.add(fillLight);
 
-    // Earth base - dark sphere
+    // Earth base - moon-like sphere
     const earthGeometry = new THREE.SphereGeometry(10, 128, 128);
     const earthMaterial = new THREE.MeshPhongMaterial({
-      color: 0x0a0a1a,
-      emissive: 0x050510,
-      shininess: 20,
-      specular: 0x111122
+      color: 0x808080,
+      emissive: 0x1a1a1a,
+      shininess: 15,
+      specular: 0x555555
     });
 
     const earth = new THREE.Mesh(earthGeometry, earthMaterial);
@@ -186,10 +186,10 @@ export default function Portfolio3D() {
 
         const lineGeometry = new THREE.BufferGeometry().setFromPoints(vertices);
         const lineMaterial = new THREE.LineBasicMaterial({
-          color: 0x00ffff,
+          color: 0xb0b0b0,
           linewidth: 2,
           transparent: true,
-          opacity: 0.9
+          opacity: 0.6
         });
 
         const line = new THREE.Line(lineGeometry, lineMaterial);
@@ -199,9 +199,9 @@ export default function Portfolio3D() {
         for (let i = 0; i < vertices.length - 1; i++) {
           const tubeGeometry = new THREE.CylinderGeometry(0.08, 0.08, vertices[i].distanceTo(vertices[i + 1]), 8);
           const tubeMaterial = new THREE.MeshBasicMaterial({
-            color: 0x00ffff,
+            color: 0xcccccc,
             transparent: true,
-            opacity: 0.7
+            opacity: 0.5
           });
           const tube = new THREE.Mesh(tubeGeometry, tubeMaterial);
 
@@ -260,8 +260,8 @@ export default function Portfolio3D() {
     const glowGeometry = new THREE.SphereGeometry(11, 64, 64);
     const glowMaterial = new THREE.ShaderMaterial({
       uniforms: {
-        glowColor: { value: new THREE.Color(0x00ccff) },
-        intensity: { value: 1.5 }
+        glowColor: { value: new THREE.Color(0xffffff) },
+        intensity: { value: 0.4 }
       },
       vertexShader: `
         varying vec3 vNormal;
@@ -297,7 +297,7 @@ export default function Portfolio3D() {
     const outerGlowGeometry = new THREE.SphereGeometry(12.5, 64, 64);
     const outerGlowMaterial = new THREE.ShaderMaterial({
       uniforms: {
-        glowColor: { value: new THREE.Color(0x0088ff) }
+        glowColor: { value: new THREE.Color(0xdddddd) }
       },
       vertexShader: `
         varying vec3 vNormal;
@@ -317,7 +317,7 @@ export default function Portfolio3D() {
         void main() {
           vec3 viewDirection = normalize(-vPosition);
           float fresnel = pow(0.5 - dot(viewDirection, vNormal), 1.8);
-          gl_FragColor = vec4(glowColor, 1.0) * fresnel * 0.8;
+          gl_FragColor = vec4(glowColor, 1.0) * fresnel * 0.3;
         }
       `,
       side: THREE.BackSide,
