@@ -596,72 +596,55 @@ export default function Portfolio3D() {
 
   const content = {
     classified: {
-      title: "CLEARANCE LEVEL: TOP SECRET",
-      text: "Senior Aerospace Systems Engineer specializing in satellite defense systems, orbital mechanics, and advanced space-based technologies. Security clearance verified."
+      title: "Junior Software Developer",
+      text: "DeVillier's Technology Solutions (DeVil-Tech) - USMC Amphibious Vehicle Test Branch Camp Pendleton, CA"
     },
-    missions: {
-      title: "OPERATIONAL HISTORY",
+    experience: {
+      title: "EXPERIENCE",
       items: [
         {
-          role: "Lead Satellite Defense Engineer",
-          company: "US Space Force - Delta 9",
-          year: "2022-Present",
-          clearance: "TS/SCI",
-          desc: "Designed and deployed next-generation orbital defense systems. Managed constellation of 47 surveillance satellites monitoring global threats."
-        },
-        {
-          role: "Senior Aerospace Engineer",
-          company: "Lockheed Martin - Skunk Works",
-          year: "2019-2022",
-          clearance: "Top Secret",
-          desc: "Developed classified propulsion systems for rapid orbital insertion. Led team of 12 engineers on Project Nightwatch."
-        },
-        {
-          role: "Systems Integration Specialist",
-          company: "Northrop Grumman Space",
-          year: "2016-2019",
+          role: "Junior Software Developer",
+          company: "DeVillier's Technology Solutions (DeVil-Tech)",
+          year: "August 2024 - Present",
           clearance: "Secret",
-          desc: "Integrated communication systems for military satellite networks. Achieved 99.97% uptime across 23 satellites."
+          desc: "USMC Amphibious Vehicle Test Branch - Camp Pendleton, CA. Developing and maintaining software solutions for military vehicle testing operations."
         }
       ]
     },
-    operations: {
-      title: "ACTIVE PROJECTS",
+    projects: {
+      title: "PROJECTS",
       items: [
         {
-          name: "Project Guardian Shield",
-          classification: "TS/SCI",
-          tech: "Autonomous Threat Detection AI",
-          desc: "Real-time satellite network monitoring 10,000+ orbital objects. Neural network identifies potential threats with 99.2% accuracy."
+          name: "Incident Response Coordinator",
+          tech: "Python, Jira API, Slack API",
+          desc: "Automated incident response system that streamlines ticket management and team notifications. Integrates Jira and Slack for efficient incident handling.",
+          github: "https://github.com/jpak0/incident-response-coordinator"
         },
         {
-          name: "Operation Darkstar",
-          classification: "Top Secret",
-          tech: "Advanced Propulsion Systems",
-          desc: "Next-gen ion drive technology enabling 3x faster orbital repositioning. Successfully tested on classified platform."
-        },
-        {
-          name: "Sentinel Defense Grid",
-          classification: "Secret",
-          tech: "Multi-layer Space Defense",
-          desc: "Coordinated defense network across 64 satellites providing hemisphere coverage with redundant fail-safes."
-        },
-        {
-          name: "Project Starwatch",
-          classification: "Confidential",
-          tech: "Quantum-encrypted Comms",
-          desc: "Unhackable communication protocol for military space assets. Zero breaches in 18 months of deployment."
+          name: "Personal Portfolio Website",
+          tech: "React, Three.js, Tailwind CSS",
+          desc: "Interactive 3D portfolio website featuring real-time satellite visualization and responsive design. Built with modern web technologies.",
+          github: "https://github.com/jpak0/personal-portfolio-website"
         }
       ]
     },
     contact: {
-      title: "SECURE COMMUNICATIONS",
-      text: "For inquiries regarding collaboration on classified aerospace projects, contact through secure channels only.",
+      title: "CONTACT INFORMATION",
+      text: "Feel free to reach out for collaboration opportunities or project inquiries.",
       channels: [
-        { icon: "🔐", label: "Encrypted Email", value: "your.name@secure.mil" },
-        { icon: "📡", label: "Secure Line", value: "+1 (555) DEFENSE" },
-        { icon: "🛡️", label: "Clearance Verification", value: "DOD-REF-####-####" },
-        { icon: "🌐", label: "LinkedIn (Unclass)", value: "linkedin.com/in/yourprofile" }
+        { icon: "📧", label: "Email", value: "josephpak00@gmail.com" },
+        { icon: "📱", label: "Phone", value: "(951) 316-1226" },
+        { icon: "🌐", label: "LinkedIn", value: "linkedin.com/in/joseph-pak-a92357241" },
+        { icon: "💻", label: "GitHub", value: "github.com/jpak0" }
+      ]
+    },
+    about: {
+      title: "ABOUT ME",
+      text: "Computer Science student and software developer passionate about building innovative solutions.",
+      details: [
+        { label: "Education", value: "California State University San Marcos - B.S. Computer Science (Expected: Spring 2025)" },
+        { label: "Location", value: "Temecula, CA" },
+        { label: "Interests", value: "Software Development, Automation, Web Technologies, 3D Graphics" }
       ]
     }
   };
@@ -810,58 +793,80 @@ export default function Portfolio3D() {
           {section === 'classified' && (
             <div className="border border-red-500/50 bg-black/50 backdrop-blur p-4 md:p-6 rounded font-mono">
               <p className="text-base md:text-lg text-red-400">{content[section].text}</p>
-              <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-red-500/30 text-xs md:text-sm text-red-400">
-                <p>SPECIALIZATIONS: Orbital Mechanics • Satellite Systems • Defense Architecture • AI/ML Integration</p>
-              </div>
             </div>
           )}
 
-          {section === 'missions' && (
-            <div className="space-y-4">
+          {section === 'experience' && (
+            <div className="space-y-3 md:space-y-4">
               {content[section].items.map((item, i) => (
-                <div key={i} className="border border-yellow-600/30 bg-black/60 backdrop-blur p-5 rounded font-mono">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold text-yellow-400">{item.role}</h3>
-                    <span className="text-xs px-2 py-1 bg-red-900/50 text-red-400 border border-red-500/50 rounded">
-                      {item.clearance}
-                    </span>
+                <div key={i} className="border border-yellow-600/30 bg-black/60 backdrop-blur p-4 md:p-5 rounded font-mono">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-2">
+                    <h3 className="text-lg md:text-xl font-semibold text-yellow-400">{item.role}</h3>
+                    {item.clearance && (
+                      <span className="text-xs px-2 py-1 bg-red-900/50 text-red-400 border border-red-500/50 rounded w-fit">
+                        {item.clearance}
+                      </span>
+                    )}
                   </div>
-                  <p className="text-gray-300">{item.company}</p>
-                  <p className="text-sm text-gray-500 mb-2">{item.year}</p>
-                  <p className="text-gray-400">{item.desc}</p>
+                  <p className="text-sm md:text-base text-gray-300">{item.company}</p>
+                  <p className="text-xs md:text-sm text-gray-500 mb-2">{item.year}</p>
+                  <p className="text-sm md:text-base text-gray-400">{item.desc}</p>
                 </div>
               ))}
             </div>
           )}
 
-          {section === 'operations' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {section === 'projects' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
               {content[section].items.map((item, i) => (
-                <div key={i} className="border border-cyan-500/30 bg-black/60 backdrop-blur p-5 rounded font-mono">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-semibold text-cyan-400">{item.name}</h3>
-                    <span className="text-xs px-2 py-1 bg-gray-800 text-red-400 border border-red-500/50 rounded">
-                      {item.classification}
-                    </span>
+                <div key={i} className="border border-cyan-500/30 bg-black/60 backdrop-blur p-4 md:p-5 rounded font-mono">
+                  <div className="flex justify-between items-start mb-2 gap-2">
+                    {item.github ? (
+                      <a
+                        href={item.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-base md:text-lg font-semibold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-2"
+                      >
+                        {item.name}
+                        <span className="text-xs">🔗</span>
+                      </a>
+                    ) : (
+                      <h3 className="text-base md:text-lg font-semibold text-cyan-400">{item.name}</h3>
+                    )}
                   </div>
-                  <p className="text-xs text-purple-400 mb-3">{item.tech}</p>
-                  <p className="text-sm text-gray-400">{item.desc}</p>
+                  <p className="text-xs text-purple-400 mb-2 md:mb-3">{item.tech}</p>
+                  <p className="text-xs md:text-sm text-gray-400">{item.desc}</p>
                 </div>
               ))}
             </div>
           )}
 
           {section === 'contact' && (
-            <div className="border border-green-400/30 bg-black/60 backdrop-blur p-6 rounded font-mono">
-              <p className="text-lg text-gray-300 mb-6">{content[section].text}</p>
-              <div className="space-y-3">
+            <div className="border border-green-400/30 bg-black/60 backdrop-blur p-4 md:p-6 rounded font-mono">
+              <p className="text-base md:text-lg text-gray-300 mb-4 md:mb-6">{content[section].text}</p>
+              <div className="space-y-2 md:space-y-3">
                 {content[section].channels.map((channel, i) => (
-                  <div key={i} className="flex items-center gap-4 text-green-400">
-                    <span className="text-2xl">{channel.icon}</span>
+                  <div key={i} className="flex items-center gap-3 md:gap-4 text-green-400">
+                    <span className="text-xl md:text-2xl">{channel.icon}</span>
                     <div>
-                      <p className="text-sm text-gray-500">{channel.label}</p>
-                      <p className="text-base">{channel.value}</p>
+                      <p className="text-xs md:text-sm text-gray-500">{channel.label}</p>
+                      <p className="text-sm md:text-base">{channel.value}</p>
                     </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {section === 'about' && (
+            <div className="border border-purple-500/30 bg-black/60 backdrop-blur p-4 md:p-6 rounded font-mono">
+              <p className="text-base md:text-lg text-gray-300 mb-4 md:mb-6">{content[section].text}</p>
+              <div className="space-y-3 md:space-y-4">
+                {content[section].details.map((detail, i) => (
+                  <div key={i}>
+                    <p className="text-xs md:text-sm text-purple-400 mb-1">{detail.label}</p>
+                    <p className="text-sm md:text-base text-gray-300">{detail.value}</p>
                   </div>
                 ))}
               </div>
