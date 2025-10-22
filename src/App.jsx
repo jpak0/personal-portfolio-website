@@ -413,32 +413,90 @@ export default function Portfolio3D() {
     satelliteData.forEach((data, index) => {
       const satelliteGroup = new THREE.Group();
 
-      const bodyGeometry = new THREE.BoxGeometry(1.2, 1.2, 2);
-      const bodyMaterial = new THREE.MeshPhongMaterial({
-        color: 0xcccccc,
+      // Main body - metallic material
+      const bodyGeometry = new THREE.BoxGeometry(0.9, 0.9, 1.5);
+      const bodyMaterial = new THREE.MeshStandardMaterial({
+        color: 0x888888,
+        metalness: 0.9,
+        roughness: 0.3,
         emissive: data.color,
-        emissiveIntensity: 0.3,
-        shininess: 120,
-        specular: 0xffffff
+        emissiveIntensity: 0.1
       });
       const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
       satelliteGroup.add(body);
 
-      const panelGeometry = new THREE.BoxGeometry(3.5, 0.08, 1.5);
-      const panelMaterial = new THREE.MeshPhongMaterial({
-        color: 0x1a1a5a,
-        emissive: 0x0000ff,
-        emissiveIntensity: 0.3,
-        shininess: 80
+      // Gold thermal blankets
+      const blanketGeometry = new THREE.BoxGeometry(0.92, 0.92, 0.4);
+      const blanketMaterial = new THREE.MeshStandardMaterial({
+        color: 0xdaa520,
+        metalness: 0.7,
+        roughness: 0.4
+      });
+      const blanket1 = new THREE.Mesh(blanketGeometry, blanketMaterial);
+      blanket1.position.z = 0.5;
+      satelliteGroup.add(blanket1);
+
+      const blanket2 = new THREE.Mesh(blanketGeometry, blanketMaterial);
+      blanket2.position.z = -0.5;
+      satelliteGroup.add(blanket2);
+
+      // Solar panels - dark blue/black
+      const panelGeometry = new THREE.BoxGeometry(2.2, 0.06, 1.2);
+      const panelMaterial = new THREE.MeshStandardMaterial({
+        color: 0x0a0a1a,
+        metalness: 0.3,
+        roughness: 0.7,
+        emissive: 0x000033,
+        emissiveIntensity: 0.2
       });
 
       const panel1 = new THREE.Mesh(panelGeometry, panelMaterial);
-      panel1.position.x = 2.5;
+      panel1.position.x = 1.6;
       satelliteGroup.add(panel1);
 
       const panel2 = new THREE.Mesh(panelGeometry, panelMaterial);
-      panel2.position.x = -2.5;
+      panel2.position.x = -1.6;
       satelliteGroup.add(panel2);
+
+      // Support struts
+      const strutGeometry = new THREE.CylinderGeometry(0.03, 0.03, 1.1, 8);
+      const strutMaterial = new THREE.MeshStandardMaterial({
+        color: 0x666666,
+        metalness: 0.9,
+        roughness: 0.2
+      });
+
+      const strut1 = new THREE.Mesh(strutGeometry, strutMaterial);
+      strut1.rotation.z = Math.PI / 2;
+      strut1.position.x = 0.9;
+      satelliteGroup.add(strut1);
+
+      const strut2 = new THREE.Mesh(strutGeometry, strutMaterial);
+      strut2.rotation.z = Math.PI / 2;
+      strut2.position.x = -0.9;
+      satelliteGroup.add(strut2);
+
+      // Communication antenna
+      const antennaGeometry = new THREE.CylinderGeometry(0.02, 0.02, 0.8, 8);
+      const antennaMaterial = new THREE.MeshStandardMaterial({
+        color: 0xaaaaaa,
+        metalness: 0.8,
+        roughness: 0.3
+      });
+      const antenna = new THREE.Mesh(antennaGeometry, antennaMaterial);
+      antenna.position.y = 1.2;
+      satelliteGroup.add(antenna);
+
+      // Satellite dish
+      const dishGeometry = new THREE.CylinderGeometry(0.3, 0.25, 0.1, 16);
+      const dishMaterial = new THREE.MeshStandardMaterial({
+        color: 0xcccccc,
+        metalness: 0.9,
+        roughness: 0.2
+      });
+      const dish = new THREE.Mesh(dishGeometry, dishMaterial);
+      dish.position.y = 1.6;
+      satelliteGroup.add(dish);
 
       const angle = (index / satelliteData.length) * Math.PI * 2;
       satelliteGroup.position.set(
