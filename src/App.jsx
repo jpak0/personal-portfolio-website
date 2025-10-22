@@ -632,9 +632,9 @@ export default function Portfolio3D() {
       title: "CONTACT INFORMATION",
       text: "Feel free to reach out for collaboration opportunities or project inquiries.",
       channels: [
-        { icon: "📧", label: "Email", value: "josephpak00@gmail.com" },
-        { icon: "📱", label: "Phone", value: "(951) 316-1226" },
-        { icon: "🌐", label: "LinkedIn", value: "linkedin.com/in/joseph-pak-a92357241" },
+        { icon: "📧", label: "Email", value: "josephpak03@gmail.com" },
+        { icon: "📱", label: "Phone", value: "(949) 813-8097" },
+        { icon: "🌐", label: "LinkedIn", value: "https://www.linkedin.com/in/joseph-pak-821114354/" },
         { icon: "💻", label: "GitHub", value: "github.com/jpak0" }
       ]
     },
@@ -642,7 +642,7 @@ export default function Portfolio3D() {
       title: "ABOUT ME",
       text: "Computer Science student and software developer passionate about building innovative solutions.",
       details: [
-        { label: "Education", value: "California State University San Marcos - B.S. Computer Science (Expected: Spring 2025)" },
+        { label: "Education", value: "Colorado State University - B.S. Computer Science (Expected: May 2026)" },
         { label: "Location", value: "Temecula, CA" },
         { label: "Interests", value: "Software Development, Automation, Web Technologies, 3D Graphics" }
       ]
