@@ -636,29 +636,34 @@ export default function Portfolio3D() {
         </div>
       </div>
 
-      <nav className="absolute top-16 left-0 right-0 z-10 px-6 py-4 flex justify-between items-center">
-        <div className="text-2xl font-bold text-green-400 font-mono tracking-wider">
-          [YOUR NAME] - AEROSPACE SYSTEMS
-        </div>
-        <div className="flex gap-6">
-          {[
-            { key: 'classified', label: 'PROFILE' },
-            { key: 'missions', label: 'MISSIONS' },
-            { key: 'operations', label: 'OPERATIONS' },
-            { key: 'contact', label: 'CONTACT' }
-          ].map(s => (
-            <button
-              key={s.key}
-              onClick={() => setSection(s.key)}
-              className={`text-sm uppercase font-mono tracking-wider transition-colors border px-3 py-1 ${
-                section === s.key
-                  ? 'text-green-400 border-green-400 bg-green-400/10'
-                  : 'text-gray-400 border-gray-600 hover:text-white hover:border-white'
-              }`}
-            >
-              {s.label}
-            </button>
-          ))}
+      <nav className="absolute top-12 left-0 right-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 md:py-4">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-4">
+            <div className="text-xl md:text-2xl font-bold text-red-500 font-mono tracking-wider">
+              [YOUR NAME]
+            </div>
+            <div className="flex flex-wrap gap-2 md:gap-4 justify-center">
+              {[
+                { key: 'classified', label: 'HOME' },
+                { key: 'experience', label: 'MY EXPERIENCE' },
+                { key: 'projects', label: 'PROJECTS' },
+                { key: 'contact', label: 'CONTACT JOE' },
+                { key: 'about', label: 'ABOUT JOE' }
+              ].map(s => (
+                <button
+                  key={s.key}
+                  onClick={() => setSection(s.key)}
+                  className={`text-xs md:text-sm uppercase font-mono tracking-wider transition-colors border px-2 md:px-3 py-1 ${
+                    section === s.key
+                      ? 'text-red-500 border-red-500 bg-red-500/10'
+                      : 'text-gray-400 border-gray-600 hover:text-white hover:border-white'
+                  }`}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </nav>
 
