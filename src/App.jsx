@@ -64,7 +64,7 @@ export default function Portfolio3D() {
       0.1,
       1000
     );
-    camera.position.set(0, 5, 45);
+    camera.position.set(0, 0, 40);
     camera.lookAt(0, 0, 0);
     cameraRef.current = camera;
 
