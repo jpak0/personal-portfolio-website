@@ -680,19 +680,19 @@ export default function Portfolio3D() {
         </div>
       )}
 
-      <div className="absolute bottom-0 left-0 right-0 z-10 p-8 bg-gradient-to-t from-black via-black/98 to-transparent pointer-events-none">
+      <div className="absolute bottom-0 left-0 right-0 z-10 p-4 md:p-8 bg-gradient-to-t from-black via-black/98 to-transparent pointer-events-none">
         <div className="max-w-6xl mx-auto pointer-events-auto">
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-3 md:mb-4">
             <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-            <h2 className="text-3xl font-bold text-red-500 font-mono tracking-wider">
+            <h2 className="text-2xl md:text-3xl font-bold text-red-500 font-mono tracking-wider">
               {content[section].title}
             </h2>
           </div>
 
           {section === 'classified' && (
-            <div className="border border-red-500/50 bg-black/50 backdrop-blur p-6 rounded font-mono">
-              <p className="text-lg text-red-400">{content[section].text}</p>
-              <div className="mt-4 pt-4 border-t border-red-500/30 text-sm text-red-400">
+            <div className="border border-red-500/50 bg-black/50 backdrop-blur p-4 md:p-6 rounded font-mono">
+              <p className="text-base md:text-lg text-red-400">{content[section].text}</p>
+              <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-red-500/30 text-xs md:text-sm text-red-400">
                 <p>SPECIALIZATIONS: Orbital Mechanics • Satellite Systems • Defense Architecture • AI/ML Integration</p>
               </div>
             </div>
