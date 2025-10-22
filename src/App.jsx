@@ -628,11 +628,11 @@ export default function Portfolio3D() {
 
       <div ref={mountRef} className="absolute inset-0" />
 
-      <div className="absolute top-0 left-0 right-0 z-10 bg-red-900/30 backdrop-blur border-b border-red-500/50 px-6 py-2">
-        <div className="flex justify-between items-center text-red-500 text-sm font-mono">
-          <span>⚠ CLASSIFIED - TOP SECRET ⚠</span>
+      <div className="absolute top-0 left-0 right-0 z-10 bg-red-900/30 backdrop-blur border-b border-red-500/50 px-4 md:px-6 py-2">
+        <div className="flex justify-center items-center text-red-500 text-xs md:text-sm font-mono relative">
+          <span className="absolute left-0">⚠ CLASSIFIED - TOP SECRET ⚠</span>
           <span>AUTHORIZED PERSONNEL ONLY</span>
-          <span>{new Date().toISOString().split('T')[0]}</span>
+          <span className="absolute right-0">{new Date().toISOString().split('T')[0]}</span>
         </div>
       </div>
 
