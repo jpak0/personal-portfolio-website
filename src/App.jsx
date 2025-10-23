@@ -596,7 +596,7 @@ export default function Portfolio3D() {
 
   const content = {
     classified: {
-      title: "Junior Software Developer",
+      title: "Joseph Pak -Junior Software Developer",
       text: "DeVillier's Technology Solutions (DeVil-Tech) - USMC Amphibious Vehicle Test Branch Camp Pendleton, CA"
     },
     experience: {
@@ -642,7 +642,7 @@ export default function Portfolio3D() {
       title: "ABOUT ME",
       text: "Computer Science student and software developer passionate about building innovative solutions.",
       details: [
-        { label: "Education", value: "Colorado State University - B.S. Computer Science (Expected: May 2026)" },
+        { label: "Education", value: "University - B.S. Computer Science (Expected: May 2026)" },
         { label: "Location", value: "Temecula, CA" },
         { label: "Interests", value: "Software Development, Automation, Web Technologies, 3D Graphics" }
       ]
@@ -679,61 +679,7 @@ export default function Portfolio3D() {
 
       <nav className="absolute top-12 left-0 right-0 z-10">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 md:py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-4">
-            <div className="flex items-start gap-4">
-              <div className="text-xl md:text-2xl font-bold text-red-500 font-mono tracking-wider">
-                JOSEPH PAK
-              </div>
-              {/* Astronaut Avatar */}
-              <div className="hidden lg:block relative w-20 h-32 xl:w-24 xl:h-40">
-                {/* Helmet with profile picture */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-gray-400 bg-gray-800 overflow-hidden z-10">
-                  <img
-                    src="/path/to/your/profile-picture.jpg"
-                    alt="Joe Pak"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-gray-400 text-xs">PHOTO</div>';
-                    }}
-                  />
-                  {/* Helmet visor reflection */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-blue-400/20 via-transparent to-transparent pointer-events-none"></div>
-                </div>
-
-                {/* Neck ring */}
-                <div className="absolute top-14 md:top-18 left-1/2 transform -translate-x-1/2 w-16 h-3 bg-gray-600 rounded-full border-2 border-gray-500 z-5"></div>
-
-                {/* Space suit torso */}
-                <div className="absolute top-16 md:top-18 left-1/2 transform -translate-x-1/2 w-20 h-24 bg-gradient-to-b from-gray-200 to-gray-300 rounded-lg border-2 border-gray-400">
-                  {/* Chest control panel */}
-                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-16 bg-gray-800 rounded border border-gray-600 p-1">
-                    {/* LED lights */}
-                    <div className="grid grid-cols-3 gap-1 mb-1">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                    </div>
-                    {/* Control lines */}
-                    <div className="space-y-0.5">
-                      <div className="h-0.5 bg-cyan-400/50 w-full"></div>
-                      <div className="h-0.5 bg-cyan-400/50 w-3/4"></div>
-                      <div className="h-0.5 bg-cyan-400/50 w-full"></div>
-                      <div className="h-0.5 bg-cyan-400/50 w-2/3"></div>
-                    </div>
-                  </div>
-
-                  {/* Life support tubes */}
-                  <div className="absolute bottom-1 left-1 w-1 h-8 bg-yellow-600 rounded-full"></div>
-                  <div className="absolute bottom-1 right-1 w-1 h-8 bg-yellow-600 rounded-full"></div>
-                </div>
-
-                {/* Antenna on helmet */}
-                <div className="absolute top-[-4px] left-1/2 transform -translate-x-1/2 translate-x-6 w-0.5 h-6 bg-gray-500 z-10">
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></div>
-                </div>
-              </div>
-            </div>
+          <div className="flex justify-center items-center">
             <div className="flex flex-wrap gap-2 md:gap-4 justify-center">
               {[
                 { key: 'classified', label: 'HOME' },
@@ -758,6 +704,64 @@ export default function Portfolio3D() {
           </div>
         </div>
       </nav>
+
+      {/* Centered Astronaut Avatar with Name Above */}
+      <div className="hidden lg:flex absolute top-40 left-1/2 transform -translate-x-1/2 z-20 flex-col items-center">
+        {/* Name centered above astronaut */}
+        <div className="text-xl md:text-2xl font-bold text-red-500 font-mono tracking-wider mb-2">
+          JOE
+        </div>
+
+        {/* Astronaut Avatar */}
+        <div className="relative w-16 h-24 xl:w-20 xl:h-32">
+          {/* Helmet with profile picture */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-gray-400 bg-gray-800 overflow-hidden z-10">
+            <img
+              src="/path/to/your/profile-picture.jpg"
+              alt="Joe Pak"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-gray-400 text-xs">PHOTO</div>';
+              }}
+            />
+            {/* Helmet visor reflection */}
+            <div className="absolute inset-0 bg-gradient-to-b from-blue-400/20 via-transparent to-transparent pointer-events-none"></div>
+          </div>
+
+          {/* Neck ring */}
+          <div className="absolute top-11 md:top-14 left-1/2 transform -translate-x-1/2 w-12 h-2 bg-gray-600 rounded-full border-2 border-gray-500 z-5"></div>
+
+          {/* Space suit torso */}
+          <div className="absolute top-12 md:top-15 left-1/2 transform -translate-x-1/2 w-16 h-18 bg-gradient-to-b from-gray-200 to-gray-300 rounded-lg border-2 border-gray-400">
+            {/* Chest control panel */}
+            <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-10 h-12 bg-gray-800 rounded border border-gray-600 p-1">
+              {/* LED lights */}
+              <div className="grid grid-cols-3 gap-0.5 mb-0.5">
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+                <div className="w-1.5 h-1.5 bg-red-400 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+              </div>
+              {/* Control lines */}
+              <div className="space-y-0.5">
+                <div className="h-0.5 bg-cyan-400/50 w-full"></div>
+                <div className="h-0.5 bg-cyan-400/50 w-3/4"></div>
+                <div className="h-0.5 bg-cyan-400/50 w-full"></div>
+                <div className="h-0.5 bg-cyan-400/50 w-2/3"></div>
+              </div>
+            </div>
+
+            {/* Life support tubes */}
+            <div className="absolute bottom-1 left-1 w-0.5 h-6 bg-yellow-600 rounded-full"></div>
+            <div className="absolute bottom-1 right-1 w-0.5 h-6 bg-yellow-600 rounded-full"></div>
+          </div>
+
+          {/* Antenna on helmet */}
+          <div className="absolute top-[-4px] left-1/2 transform -translate-x-1/2 translate-x-5 w-0.5 h-5 bg-gray-500 z-10">
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></div>
+          </div>
+        </div>
+      </div>
 
       {section === 'classified' && (
         <div className="hidden xl:block absolute left-0 top-44 z-0 pointer-events-none">
@@ -846,15 +850,36 @@ export default function Portfolio3D() {
             <div className="border border-green-400/30 bg-black/60 backdrop-blur p-4 md:p-6 rounded font-mono">
               <p className="text-base md:text-lg text-gray-300 mb-4 md:mb-6">{content[section].text}</p>
               <div className="space-y-2 md:space-y-3">
-                {content[section].channels.map((channel, i) => (
-                  <div key={i} className="flex items-center gap-3 md:gap-4 text-green-400">
-                    <span className="text-xl md:text-2xl">{channel.icon}</span>
-                    <div>
-                      <p className="text-xs md:text-sm text-gray-500">{channel.label}</p>
-                      <p className="text-sm md:text-base">{channel.value}</p>
+                {content[section].channels.map((channel, i) => {
+                  let href = '';
+                  if (channel.label === 'Email') {
+                    href = `mailto:${channel.value}`;
+                  } else if (channel.label === 'Phone') {
+                    href = `tel:${channel.value}`;
+                  } else if (channel.label === 'LinkedIn') {
+                    href = channel.value;
+                  } else if (channel.label === 'GitHub') {
+                    href = `https://${channel.value}`;
+                  }
+
+                  return (
+                    <div key={i} className="flex items-center gap-3 md:gap-4 text-green-400">
+                      <span className="text-xl md:text-2xl">{channel.icon}</span>
+                      <div>
+                        <p className="text-xs md:text-sm text-gray-500">{channel.label}</p>
+                        <a
+                          href={href}
+                          target={channel.label === 'LinkedIn' || channel.label === 'GitHub' ? '_blank' : undefined}
+                          rel={channel.label === 'LinkedIn' || channel.label === 'GitHub' ? 'noopener noreferrer' : undefined}
+                          className="text-sm md:text-base hover:text-green-300 transition-colors inline-flex items-center gap-2 group"
+                        >
+                          <span className="underline">{channel.value}</span>
+                          <span className="text-sm md:text-base opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">↗</span>
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
