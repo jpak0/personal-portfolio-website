@@ -17,25 +17,38 @@ export default function Portfolio3D() {
       '[SPY-SAT-04] Surveillance sweep sector 7 | Targets: 0',
       '[MIL-SAT-05] Encrypted transmission | Recipients: 3',
       '[OBS-SAT-06] Optical calibration | Resolution: 0.3m/pixel',
+      '[L3H-GND-01] RF link established | L3Harris tactical radio ONLINE',
+      '[L3H-GND-02] MIDS-JTRS handshake complete | Secure comms active',
+      '[L3H-GND-03] Multiband transmission | Frequency hopping enabled',
       '[SYSTEM] Ground station handoff | Signal strength: -87dBm',
       '[GPS-SAT-01] Orbital correction | Delta-V: 0.02m/s',
       '[DEF-SAT-02] Tracking object #47281 | Classification: DEBRIS',
       '[COM-SAT-03] Channel allocation | Bandwidth: 500MHz',
+      '[L3H-GND-01] Tactical waveform sync | Encryption: AES-256',
       '[SPY-SAT-04] Thermal imaging | Temperature range: -15°C to 42°C',
       '[MIL-SAT-05] Collision avoidance maneuver | Probability: 0.001%',
       '[OBS-SAT-06] Image capture | Coverage: 250km²',
+      '[L3H-GND-02] RF efficiency optimization | Battery life: +40%',
       '[SYSTEM] Network synchronization | Latency: 340ms',
       '[GPS-SAT-01] Atomic clock drift correction | Accuracy: ±0.0001ms',
       '[DEF-SAT-02] Radar sweep complete | Objects detected: 12',
       '[COM-SAT-03] Uplink established | Station: VANDENBERG',
+      '[L3H-GND-03] Handheld radio module active | Global comms ready',
       '[SPY-SAT-04] Pattern recognition | Confidence: 94.7%',
       '[MIL-SAT-05] Fuel status | Hydrazine: 87.3%',
       '[OBS-SAT-06] Trajectory adjustment | Inclination: 98.2°',
+      '[L3H-GND-01] Airborne tactical radio test | Signal quality: EXCELLENT',
     ];
 
     const addLog = () => {
       const timestamp = new Date().toISOString().split('T')[1].split('.')[0];
-      const randomMsg = logMessages[Math.floor(Math.random() * logMessages.length)];
+      // 50% chance to show L3Harris message for higher visibility
+      const l3hMessages = logMessages.filter(msg => msg.includes('L3H-GND'));
+      const otherMessages = logMessages.filter(msg => !msg.includes('L3H-GND'));
+      const useL3H = Math.random() < 0.5;
+      const randomMsg = useL3H && l3hMessages.length > 0
+        ? l3hMessages[Math.floor(Math.random() * l3hMessages.length)]
+        : otherMessages[Math.floor(Math.random() * otherMessages.length)];
       const newLog = `[${timestamp}] ${randomMsg}`;
 
       setLogs(prev => {
@@ -402,12 +415,12 @@ export default function Portfolio3D() {
     // Satellites
     const satellites = [];
     const satelliteData = [
-      { orbit: 15, speed: 0.01, color: 0x00ff00, label: 'GPS-SAT-01' },
-      { orbit: 18, speed: 0.008, color: 0xff0000, label: 'DEF-SAT-02' },
-      { orbit: 21, speed: 0.006, color: 0xffff00, label: 'COM-SAT-03' },
-      { orbit: 17, speed: 0.012, color: 0x00ffff, label: 'SPY-SAT-04' },
-      { orbit: 19, speed: 0.009, color: 0xff00ff, label: 'MIL-SAT-05' },
-      { orbit: 23, speed: 0.005, color: 0xffffff, label: 'OBS-SAT-06' }
+      { orbit: 15, speed: 0.001, color: 0x00ff00, label: 'GPS-SAT-01' },
+      { orbit: 18, speed: 0.0008, color: 0xff0000, label: 'DEF-SAT-02' },
+      { orbit: 21, speed: 0.0006, color: 0xffff00, label: 'COM-SAT-03' },
+      { orbit: 17, speed: 0.0012, color: 0x00ffff, label: 'SPY-SAT-04' },
+      { orbit: 19, speed: 0.0009, color: 0xff00ff, label: 'MIL-SAT-05' },
+      { orbit: 23, speed: 0.0005, color: 0xffffff, label: 'OBS-SAT-06' }
     ];
 
     satelliteData.forEach((data, index) => {
@@ -534,6 +547,117 @@ export default function Portfolio3D() {
       scene.add(orbitLine);
     });
 
+    // L3Harris RF Signal Visualization
+    const rfSignals = [];
+    satelliteData.forEach((data, index) => {
+      // Create expanding RF wave rings from satellites
+      for (let i = 0; i < 3; i++) {
+        const ringGeometry = new THREE.RingGeometry(0.5, 0.6, 32);
+        const ringMaterial = new THREE.MeshBasicMaterial({
+          color: data.color,
+          transparent: true,
+          opacity: 0.4,
+          side: THREE.DoubleSide
+        });
+        const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+        ring.userData = {
+          satelliteIndex: index,
+          offset: i * 0.5,
+          baseOpacity: 0.4
+        };
+        rfSignals.push(ring);
+        scene.add(ring);
+      }
+    });
+
+    // Tactical Radio Ground Station (L3Harris themed)
+    const createGroundStation = (lat, lon, label) => {
+      const group = new THREE.Group();
+      const pos = latLonToVector3(lat, lon, 10.2);
+
+      // Radio tower
+      const towerGeometry = new THREE.CylinderGeometry(0.05, 0.08, 1.5, 8);
+      const towerMaterial = new THREE.MeshStandardMaterial({
+        color: 0x003d7a, // L3Harris blue
+        metalness: 0.8,
+        roughness: 0.2,
+        emissive: 0x003d7a,
+        emissiveIntensity: 0.3
+      });
+      const tower = new THREE.Mesh(towerGeometry, towerMaterial);
+      tower.position.copy(pos);
+      tower.lookAt(0, 0, 0);
+      tower.rotateX(Math.PI / 2);
+      group.add(tower);
+
+      // Antenna array on top
+      const antennaGeometry = new THREE.TorusGeometry(0.15, 0.02, 8, 16);
+      const antennaMaterial = new THREE.MeshStandardMaterial({
+        color: 0xff6b00, // L3Harris orange accent
+        metalness: 0.9,
+        roughness: 0.1,
+        emissive: 0xff6b00,
+        emissiveIntensity: 0.5
+      });
+      const antenna = new THREE.Mesh(antennaGeometry, antennaMaterial);
+      const antennaPos = pos.clone().normalize().multiplyScalar(10.2 + 0.75);
+      antenna.position.copy(antennaPos);
+      antenna.lookAt(0, 0, 0);
+      group.add(antenna);
+
+      // Pulsing RF beacon
+      const beaconGeometry = new THREE.SphereGeometry(0.08, 16, 16);
+      const beaconMaterial = new THREE.MeshBasicMaterial({
+        color: 0xff0000,
+        transparent: true,
+        opacity: 0.8
+      });
+      const beacon = new THREE.Mesh(beaconGeometry, beaconMaterial);
+      beacon.position.copy(antennaPos);
+      group.add(beacon);
+
+      group.userData = { beacon, label };
+      return group;
+    };
+
+    // Add L3Harris ground stations at strategic locations
+    const groundStations = [
+      createGroundStation(28.5, -80.6, 'L3H-GND-01'), // Cape Canaveral
+      createGroundStation(34.0, -118.4, 'L3H-GND-02'), // Los Angeles
+      createGroundStation(38.8, -77.0, 'L3H-GND-03'), // Washington DC
+    ];
+    groundStations.forEach(station => scene.add(station));
+
+    // RF Communication beams between satellites and ground stations
+    // Create one beam per satellite to ensure all satellites have RF connections
+    const rfBeams = [];
+    satelliteData.forEach((satData, i) => {
+      // Create wavy RF beam with multiple segments for wave effect
+      const segments = 50; // More segments = smoother wave
+      const points = new Array(segments + 1).fill(null).map(() => new THREE.Vector3());
+
+      const beamGeometry = new THREE.BufferGeometry().setFromPoints(points);
+      const beamMaterial = new THREE.LineBasicMaterial({
+        color: 0xff0000, // Red for L3Harris RF waves
+        transparent: true,
+        opacity: 0.6, // More visible
+        linewidth: 3 // Thicker lines
+      });
+      const beam = new THREE.Line(beamGeometry, beamMaterial);
+
+      // Store wave properties for each beam (varying wavelengths and amplitudes)
+      beam.userData = {
+        satelliteIndex: i, // Connect to specific satellite
+        stationIndex: i % groundStations.length, // Cycle through ground stations
+        waveFrequency: 8 + Math.random() * 8, // Varies between 8-16 (shorter, more realistic RF waves)
+        waveAmplitude: 0.15 + Math.random() * 0.25, // Varies between 0.15-0.4 (tighter waves)
+        phaseOffset: Math.random() * Math.PI * 2 // Random starting phase
+      };
+
+      rfBeams.push(beam);
+      scene.add(beam);
+    });
+
     let mouseX = 0;
     let mouseY = 0;
 
@@ -564,6 +688,82 @@ export default function Portfolio3D() {
 
         sat.lookAt(0, 0, 0);
         sat.rotation.z += 0.005;
+      });
+
+      // Animate RF signal rings
+      rfSignals.forEach((ring) => {
+        const sat = satellites[ring.userData.satelliteIndex];
+        if (sat) {
+          // Position ring at satellite
+          ring.position.copy(sat.position);
+          ring.lookAt(0, 0, 0);
+
+          // Expand and fade out
+          const scale = 1 + (time * 0.5 + ring.userData.offset) % 3;
+          ring.scale.set(scale, scale, 1);
+          ring.material.opacity = ring.userData.baseOpacity * (1 - ((time * 0.5 + ring.userData.offset) % 3) / 3);
+        }
+      });
+
+      // Animate ground station beacons
+      groundStations.forEach((station) => {
+        const beacon = station.userData.beacon;
+        if (beacon) {
+          const pulse = Math.sin(time * 3) * 0.3 + 0.7;
+          beacon.material.opacity = pulse;
+          beacon.scale.set(1 + pulse * 0.3, 1 + pulse * 0.3, 1 + pulse * 0.3);
+        }
+      });
+
+      // Animate RF communication beams with wavy effect
+      rfBeams.forEach((beam, i) => {
+        const station = groundStations[beam.userData.stationIndex];
+        // Connect to specific satellite
+        const sat = satellites[beam.userData.satelliteIndex];
+
+        const startPos = station.children[1].position;
+        const endPos = sat.position;
+
+        // Get wave properties for this beam
+        const waveFreq = beam.userData.waveFrequency;
+        const waveAmp = beam.userData.waveAmplitude;
+        const phaseOffset = beam.userData.phaseOffset;
+
+        const positions = beam.geometry.attributes.position.array;
+        const segments = (positions.length / 3) - 1;
+
+        // Create wavy path between ground station and satellite
+        for (let j = 0; j <= segments; j++) {
+          const t = j / segments; // Progress along the beam (0 to 1)
+
+          // Linear interpolation for base path
+          const baseX = startPos.x + (endPos.x - startPos.x) * t;
+          const baseY = startPos.y + (endPos.y - startPos.y) * t;
+          const baseZ = startPos.z + (endPos.z - startPos.z) * t;
+
+          // Calculate perpendicular direction for wave offset
+          const direction = new THREE.Vector3(
+            endPos.x - startPos.x,
+            endPos.y - startPos.y,
+            endPos.z - startPos.z
+          ).normalize();
+
+          // Create perpendicular vector for wave displacement
+          const perpendicular = new THREE.Vector3(-direction.y, direction.x, 0).normalize();
+
+          // Add sine wave displacement
+          const waveOffset = Math.sin(t * Math.PI * waveFreq + time * 2 + phaseOffset) * waveAmp;
+
+          // Apply wave offset perpendicular to beam direction
+          positions[j * 3] = baseX + perpendicular.x * waveOffset;
+          positions[j * 3 + 1] = baseY + perpendicular.y * waveOffset;
+          positions[j * 3 + 2] = baseZ + perpendicular.z * waveOffset;
+        }
+
+        beam.geometry.attributes.position.needsUpdate = true;
+
+        // Pulse beam opacity (more visible range)
+        beam.material.opacity = 0.5 + Math.sin(time * 2 + i) * 0.2;
       });
 
       const targetX = mouseX * 8;
@@ -640,11 +840,11 @@ export default function Portfolio3D() {
     },
     about: {
       title: "ABOUT ME",
-      text: "Computer Science student and software developer passionate about building innovative solutions.",
+      text: "Computer Science student and software developer passionate about technology how it shapes the world!",
       details: [
-        { label: "Education", value: "University - B.S. Computer Science (Expected: May 2026)" },
-        { label: "Location", value: "Temecula, CA" },
-        { label: "Interests", value: "Software Development, Automation, Web Technologies, 3D Graphics" }
+        { label: "Education", value: "Colorado State University - B.S. Computer Science (Expected: May 2026)" },
+        { label: "Location", value: "Oceanside, CA" },
+        { label: "Interests", value: "Costco Combo Pizza, X-Fish AYCE Sushi, Software Development, Automation, Web Technologies, 3D Graphics, Martin & Taylor Guitars" }
       ]
     }
   };
@@ -773,11 +973,14 @@ export default function Portfolio3D() {
                   <span className="text-red-400 font-mono text-xs">SATELLITE TELEMETRY STREAM</span>
                 </div>
                 <div className="font-mono text-xs space-y-1 overflow-y-auto h-48 xl:h-56 2xl:h-80">
-                  {logs.map((log, i) => (
-                    <div key={i} className="text-gray-300/80 animate-fadeIn">
-                      {log}
-                    </div>
-                  ))}
+                  {logs.map((log, i) => {
+                    const isL3H = log.includes('L3H-GND');
+                    return (
+                      <div key={i} className={`animate-fadeIn ${isL3H ? 'text-red-400 font-semibold' : 'text-gray-300/80'}`}>
+                        {log}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
