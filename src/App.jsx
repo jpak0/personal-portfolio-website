@@ -807,7 +807,7 @@ export default function Portfolio3D() {
           company: "DeVillier's Technology Solutions (DeVil-Tech)",
           year: "August 2024 - Present",
           clearance: "Secret",
-          desc: "USMC Amphibious Vehicle Test Branch - Camp Pendleton, CA. Developing and maintaining software solutions for military vehicle testing operations."
+          desc: "USMC Amphibious Vehicle Test Branch - Camp Pendleton, CA."
         }
       ]
     },
