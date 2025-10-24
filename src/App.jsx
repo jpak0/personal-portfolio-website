@@ -717,7 +717,7 @@ export default function Portfolio3D() {
           {/* Helmet with profile picture */}
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-gray-400 bg-gray-800 overflow-hidden z-10">
             <img
-              src="/path/to/your/profile-picture.jpg"
+              src="/IMG_5957_Copy-removebg-preview.png"
               alt="Joe Pak"
               className="w-full h-full object-cover"
               onError={(e) => {
