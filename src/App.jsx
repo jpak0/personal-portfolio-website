@@ -596,7 +596,7 @@ export default function Portfolio3D() {
 
   const content = {
     classified: {
-      title: "Joseph Pak -Junior Software Developer",
+      title: "Joseph Pak - Junior Software Developer & Test Analyst/Data Collector",
       text: "DeVillier's Technology Solutions (DeVil-Tech) - USMC Amphibious Vehicle Test Branch Camp Pendleton, CA"
     },
     experience: {
@@ -616,8 +616,8 @@ export default function Portfolio3D() {
       items: [
         {
           name: "Incident Response Coordinator",
-          tech: "Python, Jira API, Slack API",
-          desc: "Automated incident response system that streamlines ticket management and team notifications. Integrates Jira and Slack for efficient incident handling.",
+          tech: "Java, Spring Boot, Docker, PostgreSQL/H2 database, Microservices, RESTful api",
+          desc: "Cloud-native incident management platform with automated escalation and state machine workflow orchestration. Self-hosted alternative to PagerDuty for classified networks and air-gapped systems.",
           github: "https://github.com/jpak0/incident-response-coordinator"
         },
         {
@@ -757,7 +757,7 @@ export default function Portfolio3D() {
           </div>
 
           {/* Antenna on helmet */}
-          <div className="absolute top-[-4px] left-1/2 transform -translate-x-1/2 translate-x-5 w-0.5 h-5 bg-gray-500 z-10">
+          <div className="absolute top-[-4px] left-1/2 transform -translate-x-1/2 w-0.5 h-5 bg-gray-500 z-10">
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></div>
           </div>
         </div>
@@ -788,7 +788,7 @@ export default function Portfolio3D() {
       <div className="absolute bottom-0 left-0 right-0 z-10 p-4 md:p-8 bg-gradient-to-t from-black via-black/98 to-transparent pointer-events-none">
         <div className="max-w-6xl mx-auto pointer-events-auto">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
-            <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
             <h2 className="text-2xl md:text-3xl font-bold text-red-500 font-mono tracking-wider">
               {content[section].title}
             </h2>
