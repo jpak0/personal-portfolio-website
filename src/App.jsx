@@ -796,7 +796,7 @@ export default function Portfolio3D() {
 
   const content = {
     classified: {
-      title: "Joseph Pak - Junior Software Developer & Test Analyst/Data Collector",
+      title: "Joseph Pak - Junior Software Developer & Test/Data Analyst",
       text: "DeVillier's Technology Solutions (DeVil-Tech) - USMC Amphibious Vehicle Test Branch Camp Pendleton, CA"
     },
     experience: {
@@ -814,6 +814,12 @@ export default function Portfolio3D() {
     projects: {
       title: "PROJECTS",
       items: [
+        {
+          name: "Tactical Radio Signal Processor",
+          tech: "C++, Python, FFTW3, pybind11, CMake, Docker",
+          desc: "High-performance DSP library demonstrating core signal processing concepts for tactical radio communications. Features low-pass FIR filtering, FFT analysis, SNR metrics, and comprehensive benchmarking suite.",
+          github: "https://github.com/jpak0/Tactical-Radio-Signal-Processor"
+        },
         {
           name: "Incident Response Coordinator",
           tech: "Java, Spring Boot, Docker, PostgreSQL/H2 database, Microservices, RESTful api",
