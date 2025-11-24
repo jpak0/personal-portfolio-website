@@ -803,17 +803,17 @@ export default function Portfolio3D() {
       title: "EXPERIENCE",
       items: [
         {
-          role: "Full-Stack Software Engineer (Part-Time)",
-          company: "Tepox Capital Investments (RE/MAX Premier Realty)",
-          year: "May 2025 - Present",
-          desc: "Engineered automated SEO monitoring platform using Python, REST APIs, and PostgreSQL to track 150+ keywords across 50+ pages, reducing issue detection time from 48 hours to real-time alerts and improving search rankings 22% through proactive optimization. Optimized full-stack web application performance 35% by implementing image compression, lazy loading, and CDN integration, reducing LCP from 4.2s to 2.7s and driving 18% increase in page conversions (200+ monthly leads). Developed automated SEO content generation framework using Node.js and React, increasing indexed pages 28% (385 to 492) and improving organic search traffic 40% through programmatic schema markup and metadata optimization, while documenting processes for knowledge transfer."
-        },
-        {
           role: "Software Developer",
           company: "DeVillier's Technology Solutions (DeVil-Tech)",
           year: "August 2024 - Present",
           clearance: "Secret",
-          desc: "USMC Amphibious Vehicle Test Branch - Camp Pendleton, CA."
+          desc: "Backend engineer on the DeVil-Tech distributed systems team, architecting mission-critical real-time data processing infrastructure on High Performance Computing clusters that handles 50K+ events per second in 12 microservices supporting defense applications with 99.99% uptime requirements. Architected event-driven distributed system using Apache Kafka, Python microservices, and Redis caching, reducing data processing latency 75% (from 8.2s to 2.1s) while scaling to handle 3X traffic growth to 150K events/second, enabling real-time operational analytics and advanced algorithm development. Optimized NoSQL database architecture (MongoDB) and implemented query optimization strategies, reducing response time 65% (from 3s to 1.1s) and supporting 5TB+ dataset growth while maintaining sub-second P95 latency for 10K+ concurrent queries. Spearheaded RESTful API gateway with comprehensive OpenAPI documentation serving 20+ downstream systems with 25K+ daily requests, implementing OAuth 2.0 authentication, rate limiting, and circuit breaker patterns, and led build/release engineering efforts using automated build systems achieving 99.9% uptime. Established microservices architecture standards and distributed tracing implementation (Jaeger) adopted by 25+ engineers across 4 teams, collaborating with the Configuration Control Board (CCB) to reduce integration bugs 50% and improve cross-service debugging efficiency 70%."
+        },
+        {
+          role: "Full-Stack Software Engineer (Part-Time)",
+          company: "Tepox Capital Investments (RE/MAX Premier Realty)",
+          year: "May 2025 - Present",
+          desc: "Engineered automated SEO monitoring platform using Python, REST APIs, and PostgreSQL to track 150+ keywords across 50+ pages, reducing issue detection time from 48 hours to real-time alerts and improving search rankings 22% through proactive optimization. Optimized full-stack web application performance 35% by implementing image compression, lazy loading, and CDN integration, reducing LCP from 4.2s to 2.7s and driving 18% increase in page conversions (200+ monthly leads). Developed automated SEO content generation framework using Node.js and React, increasing indexed pages 28% (385 to 492) and improving organic search traffic 40% through programmatic schema markup and metadata optimization, while documenting processes for knowledge transfer."
         },
         {
           role: "Assistant Store Manager",
@@ -923,8 +923,9 @@ export default function Portfolio3D() {
         </div>
       </nav>
 
-      {/* Centered Astronaut Avatar with Name Above */}
-      <div className="hidden lg:flex absolute top-40 left-1/2 transform -translate-x-1/2 z-20 flex-col items-center">
+      {/* Centered Astronaut Avatar with Name Above - Only show on home page */}
+      {section === 'classified' && (
+        <div className="hidden lg:flex absolute top-40 left-1/2 transform -translate-x-1/2 z-20 flex-col items-center">
         {/* Name centered above astronaut */}
         <div className="text-xl md:text-2xl font-bold text-red-500 font-mono tracking-wider mb-2">
           JOE
@@ -980,6 +981,7 @@ export default function Portfolio3D() {
           </div>
         </div>
       </div>
+      )}
 
       {section === 'classified' && (
         <div className="hidden xl:block absolute left-0 top-44 z-0 pointer-events-none">
@@ -1006,7 +1008,7 @@ export default function Portfolio3D() {
         </div>
       )}
 
-      <div className="absolute bottom-0 left-0 right-0 z-10 p-4 md:p-8 bg-gradient-to-t from-black via-black/98 to-transparent pointer-events-none">
+      <div className="absolute bottom-0 left-0 right-0 z-10 p-4 md:p-8 bg-gradient-to-t from-black via-black/98 to-transparent pointer-events-none max-h-[calc(100vh-140px)] overflow-y-auto">
         <div className="max-w-6xl mx-auto pointer-events-auto">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
             <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
