@@ -796,18 +796,30 @@ export default function Portfolio3D() {
 
   const content = {
     classified: {
-      title: "Joseph Pak - Junior Software Developer & Test/Data Analyst",
-      text: "DeVillier's Technology Solutions (DeVil-Tech) - USMC Amphibious Vehicle Test Branch Camp Pendleton, CA"
+      title: "Joseph Pak - Software Developer",
+      text: "DeVillier's Technology Solutions (DeVil-Tech) - USMC Camp Pendleton, CA"
     },
     experience: {
       title: "EXPERIENCE",
       items: [
         {
-          role: "Junior Software Developer",
+          role: "Full-Stack Software Engineer (Part-Time)",
+          company: "Tepox Capital Investments (RE/MAX Premier Realty)",
+          year: "May 2025 - Present",
+          desc: "Engineered automated SEO monitoring platform using Python, REST APIs, and PostgreSQL to track 150+ keywords across 50+ pages, reducing issue detection time from 48 hours to real-time alerts and improving search rankings 22% through proactive optimization. Optimized full-stack web application performance 35% by implementing image compression, lazy loading, and CDN integration, reducing LCP from 4.2s to 2.7s and driving 18% increase in page conversions (200+ monthly leads). Developed automated SEO content generation framework using Node.js and React, increasing indexed pages 28% (385 to 492) and improving organic search traffic 40% through programmatic schema markup and metadata optimization, while documenting processes for knowledge transfer."
+        },
+        {
+          role: "Software Developer",
           company: "DeVillier's Technology Solutions (DeVil-Tech)",
           year: "August 2024 - Present",
           clearance: "Secret",
           desc: "USMC Amphibious Vehicle Test Branch - Camp Pendleton, CA."
+        },
+        {
+          role: "Assistant Store Manager",
+          company: "Office Depot",
+          year: "Jul 2022 - Sep 2023",
+          desc: "Tracked daily, weekly, and monthly revenue using Microsoft Excel and OfficeDepot Corporate programs, reported findings to employees, and performed analysis to drive sales from district to store level. Provided quality customer service by addressing customer inquiries and resolving issues, leading to increased customer satisfaction."
         }
       ]
     },
